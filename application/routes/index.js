@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+/* This file handles "/" route */
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.sendFile('index.html');
+const express = require('express');
+const router = express.Router();
+
+// GET home page
+router.get('/', (req, res) => {
+    res.render('home');
 });
 
 module.exports = router;

@@ -12,6 +12,11 @@ form {
     text-align: center;
 }
 
+#ask {
+    text-align: center;
+    font-size: small;
+}
+
 #email {
     width: 26%;
     border-color: gray;
@@ -40,4 +45,32 @@ form {
 
 #passwordMsg {
     padding-bottom: 10px;
+}
+
+#submit {
+    color: aliceblue;
+    background-color: blue;
+    width: 10%;
+}
+
+#title {
+    width: 26%;
+    border-color: gray;
+}
+
+#description {
+    width: 26%;
+    border-color: gray;
+}
+
+#submit {
+    color: aliceblue;
+    background-color: limegreen;
+    width: 10%;
+}
+
+#resetForm {
+    color: aliceblue;
+    background-color: red;
+    width: 10%;
 }
