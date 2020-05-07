@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 
 app.use(passport.initialize());
 app.use(passport.session());
-require('./config/studentPassport')(passport);
+require('./config/userPassport')(passport);
 require('./config/administratorPassport')(passport);
 
 // Connect flash
@@ -47,11 +47,11 @@ app.set('view engine', 'hbs');
 
 // Routes
 app.use('/', require('./routes/index'));
-app.use('/user', require('./routes/student'));
+app.use('/user', require('./routes/user'));
 app.use('/search', require('./routes/search'));
 app.use('/products', require('./routes/salesItem'));
 app.use('/admin', require('./routes/administrator'));
-app.use('/sell', require('./routes/sell'));
+app.use('/post', require('./routes/imagePost'));
 
 // Error-handling middleware
 app.use(function(req, res, next) {

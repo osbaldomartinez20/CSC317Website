@@ -1,6 +1,6 @@
 module.exports = {
     // Check if user is logged as user
-    ensureStudentAuthenticated: (req, res, next) => {
+    ensureUserAuthenticated: (req, res, next) => {
         if (req.isAuthenticated() && req.user.id) {
             return next();
         }

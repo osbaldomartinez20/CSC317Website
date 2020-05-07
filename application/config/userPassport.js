@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const db = require('./db');
 
 module.exports = () => {
-    passport.use('student-login', new LocalStrategy(
+    passport.use('user-login', new LocalStrategy(
         (username, password, done) => {
             db.query("SELECT * FROM users WHERE username = ? LIMIT 1", username, (error, result) => {
                 if (error) return done(error);

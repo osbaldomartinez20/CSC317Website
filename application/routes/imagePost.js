@@ -1,16 +1,16 @@
-/* This file handles "/sell" route */
+/* This file handles "/post" route */
 
 const express = require('express');
 const router = express.Router();
-const { ensureStudentAuthenticated } = require('../controllers/userAuthenticated');
+const { ensureUserAuthenticated } = require('../controllers/userAuthenticated');
 const imagePostController = require('../controllers/imagePostController');
-const salesItemImageUpload = require('../middlewares/salesItemImageUpload');
-const salesItemImageCompression = require('../middlewares/salesItemImageCompression')
+const postImageUpload = require('../middlewares/postImageUpload');
+const postImageCompression = require('../middlewares/postImageCompression')
 
 // GET sell page
-router.get('/', imagePostController.sell_get);
+router.get('/', imagePostController.imagePost_get);
 
 // POST request for sell page
-router.post('/', ensureStudentAuthenticated, salesItemImageUpload.array('salesItemImage', 4), salesItemImageCompression, imagePostController.sell_post);
+router.post('/', ensureUserAuthenticated, postImageUpload.single("postImage"), postImageCompression, imagePostController.imagePost_post);
 
 module.exports = router;

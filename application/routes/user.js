@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const { ensureStudentAuthenticated, forwardAuthenticated } = require('../controllers/userAuthenticated');
+const { ensureUserAuthenticated, forwardAuthenticated } = require('../controllers/userAuthenticated');
 
 // GET request to redirect to student login page
 router.get('/', (req, res) => {
@@ -23,9 +23,9 @@ router.get('/register', forwardAuthenticated, userController.register_get);
 router.post('/register', userController.register_post);
 
 // GET request for student logout
-router.get('/logout', ensureStudentAuthenticated, userController.logout);
+router.get('/logout', ensureUserAuthenticated, userController.logout);
 
 // GET student's dashboard page
-router.get('/dashboard', ensureStudentAuthenticated, userController.dashboard);
+router.get('/dashboard', ensureUserAuthenticated, userController.dashboard);
 
 module.exports = router;

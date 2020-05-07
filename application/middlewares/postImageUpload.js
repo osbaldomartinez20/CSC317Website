@@ -1,6 +1,6 @@
 const multer = require('multer');
 const path = require('path');
-const mkdirp = require('mkdirp')
+const mkdirp = require('mkdirp');
 
 // Multer storage settings
 const storage = multer.diskStorage({
