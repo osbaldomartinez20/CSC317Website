@@ -136,17 +136,14 @@ exports.dashboard = (req, res, next) => {
     let post = [];
 
     //retrieve posts made by the user
-    let sql = "SELECT * from posts where user = ?"
+    let sql = "SELECT * from posts where userid = ?"
 
     db.query(sql, loggedInUser, (error, result) => {
         if (error) throw error;
 
         let posts = result;
 
-        console.log(posts);
-
         if (posts != undefined) {
-            console.log(posts.length);
             for (let i = 0; i < posts.length; i++) {
                 post.push(posts[i]);
             }

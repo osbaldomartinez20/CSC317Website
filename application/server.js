@@ -49,7 +49,7 @@ app.set('view engine', 'hbs');
 app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/user'));
 app.use('/search', require('./routes/search'));
-app.use('/products', require('./routes/salesItem'));
+app.use('/imageCard', require('./routes/salesItem'));
 app.use('/admin', require('./routes/administrator'));
 app.use('/post', require('./routes/imagePost'));
 

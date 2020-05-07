@@ -1,0 +1,12 @@
+#imageTable {
+    width: 100%;
+    text-align: center;
+}
+
+#TableTitle {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

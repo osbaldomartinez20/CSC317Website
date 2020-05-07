@@ -16,27 +16,34 @@
 
         {{!-- Container for the post section --}}
         <div class="post_container">
-            <h2>Your Image Posts</h2>
-            <ul id="postImages" class="postImages px-0">
+            <h2 id="TableTitle">Your Image Posts</h2>
 
-                {{#if product}}
+            {{#if product}}
+            <table id="imageTable">
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date Posted</th>
+                </tr>
                 {{#each product}}
-                <li class="table-row">
-                    <div id="imagePrev"><img src="/images/uploads_compressed/{{this.user}}/salesItems/{{this.filename}}" width="100" height="120" /></div>
-                    <div class="col-lg-4 post_item"><span class="post_info"><b>Post:</b>&nbsp;</span><a
-                            href="/products/{{this.pid}}">{{this.title}}</a></div>
-                    <div class="col-lg-1 post_description"><span
-                            class="post_info"><b>Description:</b>&nbsp;</span>{{this.description}}</div>
-                    <div class="col-lg-2"><span class="post_info"><b>Date
-                                Created:</b>&nbsp;</span>{{this.date}}</div>
-                </li>
+                <tr>
+                    <th class="imagePrev"><img src="/images/uploads_compressed/{{this.userid}}/postImages/{{this.filename}}"
+                            width="50" height="60" /></th>
+                    <th class="col-lg-4 post_item"><span class="post_info"><a
+                            href="/imageCard/{{this.pid}}">{{this.title}}</a></th>
+                    <th class="col-lg-1 post_description">{{this.description}}</th>
+                    <th class="col-lg-2"><span class="post_info">{{this.date}}</th>
+                </tr>
                 {{/each}}
-                {{else}}
-                <li class="table-row">
-                    No posts.
-                </li>
-                {{/if}}
-            </ul>
+            </table>
+            {{else}}
+            <ul id="postImages" class="postImages px-0"></ul>
+            <li class="table-row">
+                No posts.
+            </li>
+            <ul></ul>
+            {{/if}}
         </div>
     </div>
 </div>
