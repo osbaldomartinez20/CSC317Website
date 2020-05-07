@@ -151,7 +151,7 @@ exports.dashboard = (req, res, next) => {
         }
 
         res.render('userDashboard', {
-            product: post
+            post: post
         });
     });
 }

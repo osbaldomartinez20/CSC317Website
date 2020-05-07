@@ -18,7 +18,7 @@
         <div class="post_container">
             <h2 id="TableTitle">Your Image Posts</h2>
 
-            {{#if product}}
+            {{#if post}}
             <table id="imageTable">
                 <colgroup>
                     <col span="1" style="width: 10%;">
@@ -35,7 +35,7 @@
                     <th>Date Posted</th>
                     <th>Actions</th> 
                 </tr>
-                {{#each product}}
+                {{#each post}}
                 <tr>
                     <th class="imagePrev"><img
                             src="/images/uploads_compressed/{{this.userid}}/postImages/{{this.filename}}" width="50"
@@ -44,8 +44,8 @@
                                 href="/imageCard/{{this.pid}}">{{this.title}}</a></th>
                     <th class="post_description">{{this.description}}</th>
                     <th class="date_info"><span class="post_info">{{this.date}}</th>
-                    <th class="dash_actions"><button><a href="#" id="edit_button">Edit</a></button>
-                    &nbsp;&nbsp;<button id="del_b"><a href="#" id="edit_button">Delete</a></button></th>
+                    <th class="dash_actions"><button><a href="/imageCard/{{this.pid}}/edit" id="edit_button">Edit</a></button>
+                    &nbsp;&nbsp;<button id="del_b"><a href="#" id="delete_button">Delete</a></button></th>
                 </tr>
                 {{/each}}
                 </tbody>
