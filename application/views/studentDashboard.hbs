@@ -1,0 +1,42 @@
+{{!-- Container for account manipulations --}}
+<div class="account_container mt-4">
+    <!-- Display successfully listing item message -->
+    <div class="col-5 mx-auto">
+        {{> message}}
+    </div>
+    <h1>Welcome to your Dashboard, {{loggedIn.username}}!</h1>
+</div>
+
+{{!-- --------------------------------------------------------------------------------- --}}
+{{!-- <hr style="border: 3px solid rgb(31, 26, 34); max-width: 50%"> --}}
+{{!-- --------------------------------------------------------------------------------- --}}
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="items_forSale_tab">
+
+        {{!-- Container for the post section --}}
+        <div class="post_container">
+            <h2>Your Image Posts</h2>
+            <ul id="postImages" class="postImages px-0">
+
+                {{#if product}}
+                {{#each product}}
+                <li class="table-row">
+                    <div id="imagePrev"><img src="/images/uploads_compressed/{{this.user}}/salesItems/{{this.filename}}" width="100" height="120" /></div>
+                    <div class="col-lg-4 post_item"><span class="post_info"><b>Post:</b>&nbsp;</span><a
+                            href="/products/{{this.pid}}">{{this.title}}</a></div>
+                    <div class="col-lg-1 post_description"><span
+                            class="post_info"><b>Description:</b>&nbsp;</span>{{this.description}}</div>
+                    <div class="col-lg-2"><span class="post_info"><b>Date
+                                Created:</b>&nbsp;</span>{{this.date}}</div>
+                </li>
+                {{/each}}
+                {{else}}
+                <li class="table-row">
+                    No posts.
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</div>
