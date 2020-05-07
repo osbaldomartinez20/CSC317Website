@@ -10,10 +10,10 @@ exports.imagePost_get = (req, res, next) => {
 exports.imagePost_post = (req, res, next) => {
     let productId = uuidv4();
     let { title, description, terms } = req.body;
-    let seller = req.user.id;
+    let userid = req.user.id;
     let postImage = req.file.filename;
     let postError = [];
-    
+
 
     // Intepret and store newline for description
     description = description.replace(/\r\n|\r|\n/g, "<br>");
@@ -38,21 +38,26 @@ exports.imagePost_post = (req, res, next) => {
         });
     }
 
-    let sql = "INSERT INTO posts (pid, title, description, user, filename) VALUES (?,?,?,?,?)";
 
-    db.query(sql, [productId, title, description, seller, postImage], (err, result) => {
-        if (err) {
-            req.flash('error', 'Error listing item');
-            res.render('imagePost');
-        }
+    db.query("SELECT * FROM users WHERE id = ?", userid, (err1, result1) => {
+        let user = result1[0].username;
 
-        if ((typeof result !== 'undefined')) {
-            req.flash('success', 'Successfully listed item for sale');
-            res.redirect('/user/dashboard');
-        }
-        else {
-            req.flash('error', 'Error listing item');
-            res.redirect('/post');
-        }
+        let sql = "INSERT INTO posts (pid, title, description, userid, filename, user) VALUES (?,?,?,?,?,?)";
+
+        db.query(sql, [productId, title, description, userid, postImage, user], (err, result) => {
+            if (err) {
+                req.flash('error', 'Error posting image');
+                res.render('imagePost');
+            }
+
+            if ((typeof result !== 'undefined')) {
+                req.flash('success', 'Successfully posted an image');
+                res.redirect('/user/dashboard');
+            }
+            else {
+                req.flash('error', 'Error posting image');
+                res.redirect('/post');
+            }
+        });
     });
 }

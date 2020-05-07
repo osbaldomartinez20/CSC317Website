@@ -1,0 +1,13 @@
+.itemContainer {
+    text-align: center;
+}
+#postImage {
+    height: 420px;
+    width: auto;
+}
+
+.description {
+    white-space: pre-wrap;
+    text-align: center;
+    
+}
