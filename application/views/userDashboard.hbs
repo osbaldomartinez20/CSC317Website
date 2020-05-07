@@ -20,22 +20,35 @@
 
             {{#if product}}
             <table id="imageTable">
+                <colgroup>
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 20%;">
+                    <col span="1" style="width: 35%;">
+                    <col span="1" style="width: 25%;">
+                    <col span="1" style="width: 10%;">
+                </colgroup>
+                <tbody>
                 <tr>
                     <th>Image</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Date Posted</th>
+                    <th>Actions</th> 
                 </tr>
                 {{#each product}}
                 <tr>
-                    <th class="imagePrev"><img src="/images/uploads_compressed/{{this.userid}}/postImages/{{this.filename}}"
-                            width="50" height="60" /></th>
-                    <th class="col-lg-4 post_item"><span class="post_info"><a
-                            href="/imageCard/{{this.pid}}">{{this.title}}</a></th>
-                    <th class="col-lg-1 post_description">{{this.description}}</th>
-                    <th class="col-lg-2"><span class="post_info">{{this.date}}</th>
+                    <th class="imagePrev"><img
+                            src="/images/uploads_compressed/{{this.userid}}/postImages/{{this.filename}}" width="50"
+                            height="60" /></th>
+                    <th class="post_title"><span class="post_info"><a
+                                href="/imageCard/{{this.pid}}">{{this.title}}</a></th>
+                    <th class="post_description">{{this.description}}</th>
+                    <th class="date_info"><span class="post_info">{{this.date}}</th>
+                    <th class="dash_actions"><button><a href="#" id="edit_button">Edit</a></button>
+                    &nbsp;&nbsp;<button id="del_b"><a href="#" id="edit_button">Delete</a></button></th>
                 </tr>
                 {{/each}}
+                </tbody>
             </table>
             {{else}}
             <ul id="postImages" class="postImages px-0"></ul>

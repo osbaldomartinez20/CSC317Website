@@ -74,6 +74,7 @@ exports.register_post = (req, res, next) => {
         // Check if passwords match
         if (password !== confirmPassword) {
             dataPassedBack.username = username;
+            dataPassedBack.email = email;
             regError.push({ message: 'Passwords do not match' });
         }
     }

@@ -23,7 +23,6 @@ app.use(bodyParser.json())
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/userPassport')(passport);
-require('./config/administratorPassport')(passport);
 
 // Connect flash
 app.use(flash());
@@ -41,7 +40,7 @@ app.use((req, res, next) => {
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
-    helpers: require('./helpers/handlebarsHelpers')
+    
 }));
 app.set('view engine', 'hbs');
 
@@ -49,8 +48,7 @@ app.set('view engine', 'hbs');
 app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/user'));
 app.use('/search', require('./routes/search'));
-app.use('/imageCard', require('./routes/salesItem'));
-app.use('/admin', require('./routes/administrator'));
+app.use('/imageCard', require('./routes/imageCard'));
 app.use('/post', require('./routes/imagePost'));
 
 // Error-handling middleware

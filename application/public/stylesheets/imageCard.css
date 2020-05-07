@@ -4,6 +4,7 @@
 #postImage {
     height: 420px;
     width: auto;
+    border-style: solid;
 }
 
 .description {

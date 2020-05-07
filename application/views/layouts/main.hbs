@@ -5,26 +5,50 @@
     <title>SFSU - CSC 317 - Gator Image</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="shortcut icon" href="/images/main/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/main/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/form.css">
     <link rel="stylesheet" href="/stylesheets/table.css">
     <link rel="stylesheet" href="/stylesheets/imageCard.css">
-    <script type="text/javascript" src="/js/sell.js"></script>
+    <link rel="stylesheet" href="/stylesheets/error.css">
+    <link rel="stylesheet" href="/stylesheets/userDash.css">
+    <script type="text/javascript" src="/js/typeahead.min.js"></script>
+    <script type="text/javascript" src="/js/typeahead.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
-    <header class="header">  
+    <header class="navbar">
+        <!-- Navbar (Brand, Links, Search Bar, Sell Button, User Dropdown Menu) -->
+        <nav class="frank">
+            <a href="/">Home</a>
+            {{#if loggedIn}}
+            <div class="userOut">
+            <a href="/user/dashboard">Dashboard</a>
+            <a href="/post">Post</a>
+            <a href="/user/logout">Logout</a>
+            </div>
+            {{else}}
+            <div class="userNotIn">
+            <a href="/user/login">Login</a>
+            <a href="/user/register">Register</a>
+            </div>
+            {{/if}}
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input class="form-control form-control form-control-borderless typeahead tt-query"
+                        autocomplete="off" spellcheck="false" type="text" placeholder="What are you looking for ?" name="keyword"
+                        value="{{searchCriteria.keyword}}" id="searchKeyword" maxlength="40">
+                    <button class="btn search-button" type="submit"><i class="fa fa-search">Search</i></button>
+                </form>
+            </div>
+        </nav>
+        <br/>
     </header>
 
     <!-- Content Body -->
     <main role="main" class="load">
         {{{body}}}
     </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-    </footer>
 </body>
 
 </html>

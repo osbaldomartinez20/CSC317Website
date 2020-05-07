@@ -7,14 +7,6 @@ module.exports = {
         req.flash('error', 'Please log in');
         res.redirect('/user/login?redirectUrl=' + req.originalUrl);
     },
-    // Check if user is logged as administrator
-    ensureAdminAuthenticated: (req, res, next) => {
-        if (req.isAuthenticated() && req.user.aid) {
-            return next();
-        }
-        req.flash('error', 'Please log in');
-        res.redirect('/admin/login');
-    },
     // Check if user is already logged in as user or administrator
     forwardAuthenticated: (req, res, next) => {
         if (!req.isAuthenticated()) {

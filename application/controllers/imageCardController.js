@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 // Show sales item page on GET
-exports.salesItem_get = (req, res, next) => {
+exports.imageCard_get = (req, res, next) => {
     let imageId = req.params.pid;
 
     let sql = "SELECT * FROM posts WHERE pid = ?";
@@ -15,7 +15,7 @@ exports.salesItem_get = (req, res, next) => {
         
         // Item found
         if (result.length !== 0) {
-            res.render('salesItem', {
+            res.render('imageCard', {
                 data: objToBePassed
             });
         }
