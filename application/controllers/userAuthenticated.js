@@ -1,7 +1,7 @@
 module.exports = {
-    // Check if user is logged as student
+    // Check if user is logged as user
     ensureStudentAuthenticated: (req, res, next) => {
-        if (req.isAuthenticated() && req.user.uid) {
+        if (req.isAuthenticated() && req.user.id) {
             return next();
         }
         req.flash('error', 'Please log in');
@@ -15,13 +15,13 @@ module.exports = {
         req.flash('error', 'Please log in');
         res.redirect('/admin/login');
     },
-    // Check if user is already logged in as student or administrator
+    // Check if user is already logged in as user or administrator
     forwardAuthenticated: (req, res, next) => {
         if (!req.isAuthenticated()) {
             return next();
         }
         else {
-            if (req.user.sid) {
+            if (req.user.id) {
                 res.redirect('/user/dashboard');
             }
             else if (req.user.aid) {

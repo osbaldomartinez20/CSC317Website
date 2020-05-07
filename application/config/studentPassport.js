@@ -6,7 +6,7 @@ const db = require('./db');
 module.exports = () => {
     passport.use('student-login', new LocalStrategy(
         (username, password, done) => {
-            db.query("SELECT * FROM Students WHERE username = ? LIMIT 1", username, (error, result) => {
+            db.query("SELECT * FROM users WHERE username = ? LIMIT 1", username, (error, result) => {
                 if (error) return done(error);
                 if (result.length == 0) {
                     return done(null, false, { message: 'Username and/or password is incorrect' });
@@ -26,11 +26,12 @@ module.exports = () => {
     ));
 
     passport.serializeUser((user, done) => {
-        return done(null, user.sid);
+        console.log(user)
+        return done(null, user.id);
     });
 
     passport.deserializeUser((id, done) => {
-        db.query("SELECT * FROM Students WHERE sid = ?", id, (err, result) => {
+        db.query("SELECT * FROM users WHERE id = ?", id, (err, result) => {
             if (err) throw err;
 
             return done(null, result[0]);

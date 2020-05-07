@@ -5,14 +5,15 @@
 
 <!-- Registration form -->
 <div>
-    <form action="#" method="POST">
+    <form action="/user/register" method="POST">
         <div class="form-group">
-            <input type="email" id="email" name="username" class="form-control" placeholder="Enter your email"
-                maxlength="40" required />
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                value="{{dataPassedBack.email}}" maxlength="40" required />
         </div>
         <br>
         <div class="form-group">
-            <input type="text" id="username" placeholder="Enter an username" maxlength="40" required />
+            <input type="text" id="username" name="username" placeholder="Enter an username" value="{{dataPassedBack.username}}"
+            maxlength="40" required />
         </div>
         <br>
         <div class="form-group">

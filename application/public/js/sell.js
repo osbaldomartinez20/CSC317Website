@@ -1,6 +1,7 @@
+
 /**************** Upload Image Preview ****************/
 /*********** Tutorial by MDN (MDN Web Docs) ***********/
-let input = document.querySelector('#salesItemImage');
+let input = document.querySelector('#postImage');
 let preview = document.querySelector('.preview');
 
 input.style.opacity = 0;

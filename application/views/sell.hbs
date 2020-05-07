@@ -8,7 +8,7 @@
 
 <!-- Postimage form -->
 <div>
-    <form action="/post" method="POST" enctype="multipart/form-data">
+    <form action="/sell" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <h5>Title</h5>
             <input type="text" id="title" name="title" class="form-control" placeholder="Enter a title" maxlength="40"
@@ -24,10 +24,10 @@
         <div class="form-group">
             <h5>Add Image Here</h5>
             <div>
-                <label for="salesItemImage" id="imageLabel">Choose up to 4 images to upload (PNG,
+                <label for="postImage" id="imageLabel">Choose up to 1 image to upload (PNG,
                     JPG)<br></label>
                 <br>
-                <input type="file" name="salesItemImage" id="image" accept="image/png,image/jpg,image/jpeg" multiple
+                <input type="file" name="postImage" id="image" accept="image/png,image/jpg,image/jpeg"
                     required />
             </div>
             <div class="preview">
@@ -44,8 +44,6 @@
         <br>
 
         <div class="row justify-content-end mx-0">
-            <button type="reset" class="btn btn-danger"
-                id="resetForm">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="submit" class="btn btn-success" id="submit">Submit</button>
             <div id="card-stack"></div>
         </div>
