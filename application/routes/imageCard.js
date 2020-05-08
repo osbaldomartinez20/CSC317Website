@@ -14,4 +14,10 @@ router.get('/:pid/edit', ensureUserAuthenticated, imageCardController.edit_get);
 //POST request to update database
 router.post('/:pid/update', ensureUserAuthenticated, imageCardController.edit_post);
 
+//GET to obtain information of post being deleted.
+router.get('/:pid/confirmDelete', ensureUserAuthenticated, imageCardController.confirm_get);
+
+//GET to delete post
+router.get('/:pid/delete', ensureUserAuthenticated, imageCardController.delete_get);
+
 module.exports = router;

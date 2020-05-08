@@ -1,0 +1,16 @@
+<div class="header">
+    <h1>Post To Delete Information</h1>
+</div>
+<br>
+
+<!-- Postimage form -->
+<h2 style="text-align: center;">ARE YOU SURE YOU WANT TO DELETE THE POST?</h2>
+<div style="text-align: center;">
+    <img src="/images/uploads_compressed/{{loggedIn.id}}/postImages/{{values.filename}}" width="125"height="150" />
+    <br/>
+    <h3>THIS CANNOT BE UNDONE</h3>
+        <div>
+            <button id="no"><a id="no_button" href="/user/dashboard">NO!!</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="yes"><a id="yes_button" href="/imageCard/{{values.pid}}/delete">YES!!</a></button>
+        </div>
+</div>
