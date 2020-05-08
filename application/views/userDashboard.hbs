@@ -7,9 +7,7 @@
     <h1>Welcome to your Dashboard, {{loggedIn.username}}!</h1>
 </div>
 
-{{!-- --------------------------------------------------------------------------------- --}}
-{{!-- <hr style="border: 3px solid rgb(31, 26, 34); max-width: 50%"> --}}
-{{!-- --------------------------------------------------------------------------------- --}}
+<script type="text/javascript" src="/js/sortTable.js"></script>
 
 <div class="tab-content">
     <div class="tab-pane fade show active" id="items_forSale_tab">
@@ -17,7 +15,6 @@
         {{!-- Container for the post section --}}
         <div class="post_container">
             <h2 id="TableTitle">Your Image Posts</h2>
-
             {{#if post}}
             <table id="imageTable" class="table">
                 <colgroup>
@@ -28,26 +25,27 @@
                     <col span="1" style="width: 10%;">
                 </colgroup>
                 <tbody>
-                <tr class="tr">
-                    <th class="th">Image</th>
-                    <th class="th">Title</th>
-                    <th class="th">Description</th>
-                    <th class="th">Date Posted</th>
-                    <th class="th">Actions</th> 
-                </tr>
-                {{#each post}}
-                <tr class="tr">
-                    <th class="th"><a href="/imageCard/{{this.pid}}"><img
-                        src="/images/uploads_compressed/{{this.userid}}/postImages/{{this.filename}}" width="50" height="60"/>
-                        </a></th>
-                    <th class="th"><span class="post_info"><a
-                                href="/imageCard/{{this.pid}}">{{this.title}}</a></th>
-                    <th class="th">{{this.description}}</th>
-                    <th class="th"><span class="post_info">{{this.date}}</th>
-                    <th class="th"><button><a href="/imageCard/{{this.pid}}/edit" id="edit_button">Edit</a></button>
-                    &nbsp;&nbsp;<button id="del_b"><a href="/imageCard/{{this.pid}}/confirmDelete" id="delete_button">Delete</a></button></th>
-                </tr>
-                {{/each}}
+                    <tr class="tr">
+                        <th class="th">Image</th>
+                        <th class="th pointer" onclick="sortTable(1)">Title</th>
+                        <th class="th pointer" onclick="sortTable(2)">Description</th>
+                        <th class="th pointer" onclick="sortTable(3)">Date Posted</th>
+                        <th class="th">Actions</th>
+                    </tr>
+                    {{#each post}}
+                    <tr class="tr">
+                        <td class="th"><a href="/imageCard/{{this.pid}}"><img
+                                    src="/images/uploads_compressed/{{this.userid}}/postImages/{{this.filename}}"
+                                    width="50" height="60" />
+                            </a></td>
+                        <td class="th"><span class="post_info"><a href="/imageCard/{{this.pid}}">{{this.title}}</a></td>
+                        <td class="th">{{this.description}}</td>
+                        <td class="th"><span class="post_info">{{this.date}}</td>
+                        <td class="th"><a href="/imageCard/{{this.pid}}/edit" id="edit_button"><button>Edit</button></a>
+                            &nbsp;&nbsp;<a href="/imageCard/{{this.pid}}/confirmDelete"
+                                    id="delete_button"><button id="del_b">Delete</button></a></td>
+                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
             {{else}}

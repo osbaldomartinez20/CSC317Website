@@ -1,4 +1,7 @@
+//Got help from stackoverflow
+//https://stackoverflow.com/questions/14069421/show-an-image-preview-before-upload
 $(document).ready(function () {
+
     document.getElementById("image").onchange = function () {
         var reader = new FileReader();
     

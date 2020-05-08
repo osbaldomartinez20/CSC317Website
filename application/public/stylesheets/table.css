@@ -19,3 +19,13 @@
 .imagePrev {
     border-bottom: 1px solid black;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.sortButton {
+    background-color: green;
+    float: right;
+    cursor: pointer;
+}
