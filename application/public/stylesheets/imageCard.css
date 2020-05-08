@@ -8,7 +8,10 @@
 }
 
 .description {
-    white-space: pre-wrap;
-    text-align: center;
-    
+    text-align: center;    
 }
+
+#cDes {
+    white-space: pre-wrap;
+}
+

@@ -29,3 +29,7 @@
     float: right;
     cursor: pointer;
 }
+
+#dDes {
+    white-space: pre-wrap;
+}

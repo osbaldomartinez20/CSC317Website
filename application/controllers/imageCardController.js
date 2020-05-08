@@ -45,10 +45,6 @@ exports.edit_get = (req, res, next) => {
         }
         dataPassed = result[0];
 
-        if (dataPassed.description != null) {
-            dataPassed.description = dataPassed.description.replace(/<br>/g, "\n");
-        }
-
         res.render('editImage', {
             values: dataPassed
         });
@@ -62,10 +58,6 @@ exports.edit_post = (req, res, next) => {
     let user = req.user.id;
 
     let sql = "SELECT * FROM posts WHERE pid = ?";
-
-    if (description != null) {
-        description = description.replace(/\r\n|\r|\n/g, "<br>");
-    }
 
     db.query(sql, [pid], (error, result) => {
         if (error) throw error;
