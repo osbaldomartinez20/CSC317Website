@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 
+//for my local server
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -8,12 +9,13 @@ const connection = mysql.createConnection({
   multipleStatements: true
 });
 
+//for my amazon server
 const conn = mysql.createConnection({
-  host: "localhost",
+  host: "csc317database.cioa4ik5rcbw.us-west-1.rds.amazonaws.com",
   user: "admin",
   password: "xenoblade2010",
   database: "csc317_database",
   multipleStatements: true
 });
 
-module.exports = connection;
+module.exports = conn;
