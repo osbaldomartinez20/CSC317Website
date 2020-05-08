@@ -123,13 +123,10 @@ exports.delete_get = (req, res, next) => {
             fs.unlink('./public/images/uploads/' + user + '/postImages/' + imageN, (err) => {
                 if (err) throw err;
                 console.log('successfully deleted file.');
+                
+                req.flash('success', 'Deleted Post Information.');
+                res.redirect('/user/dashboard');
 
-                fs.unlink('./public/images/uploads_compressed/' + user + '/postImages/' + imageN, (err) => {
-                    if (err) throw err;
-                    console.log('successfully deleted file.');
-                    req.flash('success', 'Deleted Post Information.');
-                    res.redirect('/user/dashboard');
-                });
             });
         });
     });
