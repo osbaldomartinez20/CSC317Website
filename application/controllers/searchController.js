@@ -3,20 +3,11 @@ const db = require('../config/db');
 // Handle search redirection on POST
 exports.post = (req, res, next) => {
     let keyword = req.body.keyword;
-    let category = req.body.categories;
 
     if (keyword) {
-        if (category) {
-            res.redirect('/search?k=' + keyword + '&c=' + category);
-        }
-        else {
-            res.redirect('/search?k=' + keyword);
-        }
-    }
-    else if (category) {
-        res.redirect('/search?c=' + category);
-    }
-    else {
+        res.redirect('/search?k=' + keyword);
+        
+    } else {
         res.redirect('/search?c=all');
     }
 }
@@ -91,18 +82,18 @@ exports.get = (req, res, next) => {
 exports.suggestions = (req, res, next) => {
 
     // Retrieve information of all active sales items
-    let sql = "SELECT * FROM SalesItems WHERE (name LIKE ? OR description LIKE ?) AND status = 'Active'";
+    let sql = "SELECT * FROM posts WHERE (title LIKE ? OR description LIKE ?)";
     
     let keyword = req.query.key;
-    let product = [];
+    let posts = [];
 
     db.query(sql, ['%' + keyword + '%', '%' + keyword + '%'], (err, result) => {
         if (err) throw err;
 
         for (let i = 0; i < result.length; i++) {
-            product.push(result[i].name);
+            posts.push(result[i].name);
         }
 
-        res.send(JSON.stringify(product));
+        res.send(JSON.stringify(posts));
     });
 }
