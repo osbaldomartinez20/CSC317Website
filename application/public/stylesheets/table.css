@@ -3,10 +3,19 @@
     text-align: center;
 }
 
+#searchTable {
+    width: 100%;
+    text-align: center;
+}
+
 #TableTitle {
     text-align: center;
 }
 
-table, th, td {
+.table, .th, .td {
     border: 1px solid black;
+}
+
+.imagePrev {
+    border-bottom: 1px solid black;
 }

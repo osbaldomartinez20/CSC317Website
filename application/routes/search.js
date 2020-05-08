@@ -10,7 +10,21 @@ router.post('/', searchController.post);
 // GET request to paginate and show search results
 router.get('/', searchController.get);
 
-// GET request for search suggestions
-router.get('/suggestions/typeahead', searchController.suggestions);
-
 module.exports = router;
+
+
+const db = require('../config/db');
+
+// Handle search redirection on POST
+exports.post = (req, res, next) => {
+    let keyword = req.body.keyword;
+    let sql = "SELECT * FROM posts";
+    if (keyword != "") {
+        sql += " WHERE "
+    }
+}
+
+// Handle rendering of search results on GET
+exports.get = (req, res, next) => {
+    console.log(req.body);
+}

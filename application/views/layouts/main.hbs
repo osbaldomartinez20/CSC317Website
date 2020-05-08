@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="/stylesheets/imageCard.css">
     <link rel="stylesheet" href="/stylesheets/error.css">
     <link rel="stylesheet" href="/stylesheets/userDash.css">
-    <script type="text/javascript" src="/js/typeahead.min.js"></script>
-    <script type="text/javascript" src="/js/typeahead.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -23,26 +25,28 @@
             <a href="/">Home</a>
             {{#if loggedIn}}
             <div class="userOut">
-            <a href="/user/dashboard">Dashboard</a>
-            <a href="/post">Post</a>
-            <a href="/user/logout">Logout</a>
+                <a href="/user/dashboard">Dashboard</a>
+                <a href="/post">Post</a>
+                <a href="/user/logout">Logout</a>
             </div>
             {{else}}
             <div class="userNotIn">
-            <a href="/user/login">Login</a>
-            <a href="/user/register">Register</a>
+                <a href="/user/login">Login</a>
+                <a href="/user/register">Register</a>
             </div>
             {{/if}}
             <div class="search-container">
-                <form action="/action_page.php">
-                    <input class="form-control form-control form-control-borderless typeahead tt-query"
-                        autocomplete="off" spellcheck="false" type="text" placeholder="What are you looking for ?" name="keyword"
-                        value="{{searchCriteria.keyword}}" id="searchKeyword" maxlength="40">
-                    <button class="btn search-button" type="submit"><i class="fa fa-search">Search</i></button>
+                <form action="/search" method="POST">
+                        <input class="typeahead tt-query" autocomplete="off" spellcheck="false" 
+                        type="text" placeholder="What are you looking for ?" name="keyword" value="{{searchCriteria.keyword}}"
+                        id="searchKeyword" maxlength="40">
+                    
+                    <button class="btn search-button" type="submit" id="searchButon"><i
+                            class="fa fa-search"></i></button>
                 </form>
             </div>
         </nav>
-        <br/>
+        <br />
     </header>
 
     <!-- Content Body -->
