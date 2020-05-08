@@ -44,6 +44,7 @@ exports.edit_get = (req, res, next) => {
             res.redirect('/user/dashboard');
         }
         dataPassed = result[0];
+
         if (dataPassed.description != null) {
             dataPassed.description = dataPassed.description.replace(/<br>/g, "\n");
         }
@@ -62,8 +63,13 @@ exports.edit_post = (req, res, next) => {
 
     let sql = "SELECT * FROM posts WHERE pid = ?";
 
+    if (description != null) {
+        description = description.replace(/\r\n|\r|\n/g, "<br>");
+    }
+
     db.query(sql, [pid], (error, result) => {
         if (error) throw error;
+
         if (user != result[0].userid) {
             req.flash('error', 'Not the owner of the post.');
             res.redirect('/user/dashboard');

@@ -7,10 +7,4 @@ const searchController = require('../controllers/searchController');
 // POST request for search
 router.post('/', searchController.post);
 
-// GET request to paginate and show search results
-router.get('/', searchController.get);
-
-// GET request for search suggestions
-router.get('/suggestions/typeahead', searchController.suggestions);
-
 module.exports = router;

@@ -16,7 +16,9 @@ exports.imagePost_post = (req, res, next) => {
 
 
     // Intepret and store newline for description
-    description = description.replace(/\r\n|\r|\n/g, "<br>");
+    if (description != null) {
+        description = description.replace(/\r\n|\r|\n/g, "<br>");
+    }
 
     // Check if required fields are filled
     if (!title || !description) {
