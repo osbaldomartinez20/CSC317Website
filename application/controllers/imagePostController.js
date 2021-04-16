@@ -14,12 +14,6 @@ exports.imagePost_post = (req, res, next) => {
     let postImage = req.file.filename;
     let postError = [];
 
-
-    // Intepret and store newline for description
-    if (description != null) {
-        description = description.replace(/\r\n|\r|\n/g, "<br>");
-    }
-
     // Check if required fields are filled
     if (!title || !description) {
         postError.push({ message: 'Please fill in all fields' });
