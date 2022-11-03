@@ -18,6 +18,42 @@ a {
   color: red;
 }
 
+@media (min-width:751px){
+  .bannerimg {
+      display: block; 
+      width: 100%;
+      height: auto;
+  }
+  .text-block {
+    position: absolute;
+      top: 39%;
+      left: 81.25%;
+      transform: translate( -50%, -50% );
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      font-size: 210%;
+  }
+}
+
+@media (max-width:750px){
+  .bannerimg {
+      display: block; 
+      width: 100%;
+      height: auto;
+  }
+  .text-block {
+    position: absolute;
+      top: 39%;
+      left: 81.25%;
+      transform: translate( -50%, -50% );
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      font-size: 110%;
+  }
+}
+
 .navbar {
   overflow: hidden;
   background-color: #e9e9e9;
@@ -96,4 +132,55 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr, caption { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td, th{ 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+    text-align: center;
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+  tr:nth-of-type(even) { 
+    background: rgb(146, 146, 146); 
+  }
+	
+	/*
+	Label the data
+	*/
+  .tdc:nth-of-type(1):before { content: "Image: "; }
+	.tdc:nth-of-type(2):before { content: "Title:\a"; white-space: pre;}
+	.tdc:nth-of-type(3):before { content: "Description:\a"; white-space: pre;}
+	.tdc:nth-of-type(4):before { content: "Date Posted:\a"; white-space: pre;}
+	.tdc:nth-of-type(5):before { content: "Actions:\a"; white-space: pre;}
 }
