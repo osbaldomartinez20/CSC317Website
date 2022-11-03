@@ -8,10 +8,10 @@ exports.imagePost_get = (req, res, next) => {
 
 // Handle submitting sales item for sell on POST
 exports.imagePost_post = (req, res, next) => {
-    let productId = uuidv4();
-    let { title, description, terms } = req.body;
-    let userid = req.user.id;
-    let postImage = req.file.filename;
+    const productId = uuidv4();
+    const { title, description, terms } = req.body;
+    const userid = req.user.id;
+    const postImage = req.file.filename;
     let postError = [];
 
     // Check if required fields are filled
@@ -36,9 +36,9 @@ exports.imagePost_post = (req, res, next) => {
 
 
     db.query("SELECT * FROM users WHERE id = ?", userid, (err1, result1) => {
-        let user = result1[0].username;
+        const user = result1[0].username;
 
-        let sql = "INSERT INTO posts (pid, title, description, userid, filename, user) VALUES (?,?,?,?,?,?)";
+        const sql = "INSERT INTO posts (pid, title, description, userid, filename, user) VALUES (?,?,?,?,?,?)";
 
         db.query(sql, [productId, title, description, userid, postImage, user], (err, result) => {
             if (err) {
@@ -56,4 +56,5 @@ exports.imagePost_post = (req, res, next) => {
             }
         });
     });
+    
 }
