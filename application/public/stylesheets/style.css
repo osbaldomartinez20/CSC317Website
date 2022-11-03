@@ -178,9 +178,9 @@ only screen and (max-width: 760px),
 	/*
 	Label the data
 	*/
-  .tdc:nth-of-type(1):before { content: "Image: "; }
-	.tdc:nth-of-type(2):before { content: "Title:\a"; white-space: pre;}
+  .tdc:nth-of-type(1):before { content: "Image:\a"; }
+	.tdc:nth-of-type(2):before { content: "Title: "; white-space: pre;}
 	.tdc:nth-of-type(3):before { content: "Description:\a"; white-space: pre;}
-	.tdc:nth-of-type(4):before { content: "Date Posted:\a"; white-space: pre;}
+	.tdc:nth-of-type(4):before { content: "Date Posted: "; white-space: pre;}
 	.tdc:nth-of-type(5):before { content: "Actions:\a"; white-space: pre;}
 }
