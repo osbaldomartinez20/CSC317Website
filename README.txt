@@ -1,0 +1,1 @@
+This folder contains the code I wrote for an image uploading web application as part of my my final project for my CSC 317 class.
