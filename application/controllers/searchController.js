@@ -15,7 +15,10 @@ exports.post = (req, res, next) => {
     }
 
     db.query(sql,placeholders, (err, result) => {
-        if (err) throw err;
+        if (err) {
+            req.flash('error', 'There was an internal error.');
+            res.redirect('/error');
+        }
 
         let totalResults = result.length;
 
@@ -28,5 +31,19 @@ exports.post = (req, res, next) => {
             total: totalResults,
             searchCriteria: criteria
         });
+    });
+}
+
+// Handle random image search
+exports.randomImage = (req, res) => {
+    let sql = "SELECT pid FROM posts ORDER BY RAND() LIMIT 1;";
+
+    db.query(sql, [], (err, result) => {
+        if (err) {
+            req.flash('error', 'There was an internal error.');
+            res.redirect('/error');
+        }
+        const iid = result[0].pid;
+        res.redirect('/imageCard/' + iid + '');
     });
 }
