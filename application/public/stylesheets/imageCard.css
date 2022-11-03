@@ -1,12 +1,6 @@
 .itemContainer {
     text-align: center;
 }
-#postImage {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    border-style: solid;
-}
 
 .description {
     text-align: center;    
