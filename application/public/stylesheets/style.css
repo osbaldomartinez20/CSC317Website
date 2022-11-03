@@ -21,6 +21,11 @@ a {
   body {
     padding: 50px;
   }
+  #postImage {
+    height: 420px;
+    width: auto;
+    border-style: solid;
+}
   .text-block {
     position: absolute;
       top: 39%;
@@ -37,6 +42,12 @@ a {
   body {
     padding: 0px;
   }
+  #postImage {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-style: solid;
+}
   .text-block {
     position: absolute;
       top: 39%;
