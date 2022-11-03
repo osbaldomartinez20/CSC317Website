@@ -25,6 +25,7 @@
                     <col span="1" style="width: 10%;">
                 </colgroup>
                 <tbody>
+                    <thead>
                     <tr class="tr">
                         <th class="th">Image</th>
                         <th class="th pointer" onclick="sortTable(1)">Title</th>
@@ -32,6 +33,7 @@
                         <th class="th pointer" onclick="sortTable(3)">Date Posted</th>
                         <th class="th">Actions</th>
                     </tr>
+                    </thead>
                     {{#each post}}
                     <tr class="tr">
                         <td class="tdc"><a href="/imageCard/{{this.pid}}"><img
